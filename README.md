@@ -17,4 +17,23 @@ Irá aparecer no projeto o diretório bin/Realese. Vá até o projeto de um clic
 A solução foi desenvolvida utilizando ClientTcp, e basicamente a parte cliente irá conectar no servidor onde podemos digitar comandos, para conectar no servidor, crear uma sala, escolher um apelido, enviar mensagem publica, mensagem publica-privada e mensagem privada. Para obter infomação dos comandos digitar na linha de comando 'HELP' que aparecerá instruções de como executar os comandos. 
 
 
+### Exemplo caminho básico
 
+Conectar no servidor:
+   CONNECT 127.0.0.1
+Escolher apelido:
+   Nick maria
+Criar uma Sala:
+   CREATEROOM sala-teste
+Entrar na Sala
+   JOIN maria sala-teste
+Enviar mensagem publicamente:
+   PUBMSG sala-teste "Minha mensagem"
+Enviar mensagem publico-privada:
+   CNOTE apelido-destino sala-teste "Mensagem para o destinatário"
+Enviar mensagem privada:
+   PRIVMSG apelido-destino sala-teste "Mensagem para o destinatário"
+Sair da sala:
+   PART sala-teste
+Desconectar do servidor:
+   DIE
