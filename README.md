@@ -19,16 +19,16 @@ A solução foi desenvolvida utilizando ClientTcp, e basicamente a parte cliente
 
 ### Exemplo caminho básico
 
-Conectar no servidor:
-   CONNECT 127.0.0.1
-Escolher apelido:
-   Nick maria
-Criar uma Sala:
-   CREATEROOM sala-teste
-Entrar na Sala
-   JOIN maria sala-teste
-Enviar mensagem publicamente:
-   PUBMSG sala-teste "Minha mensagem"
+Conectar no servidor:.
+   CONNECT 127.0.0.1 .
+Escolher apelido: .
+   Nick maria .
+Criar uma Sala: .
+   CREATEROOM sala-teste .
+Entrar na Sala .
+   JOIN maria sala-teste .
+Enviar mensagem publicamente: .
+   PUBMSG sala-teste "Minha mensagem" .
 Enviar mensagem publico-privada:
    CNOTE apelido-destino sala-teste "Mensagem para o destinatário"
 Enviar mensagem privada:
