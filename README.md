@@ -54,3 +54,4 @@ Sair da sala:
 Desconectar do servidor:
 
    DIE
+  
