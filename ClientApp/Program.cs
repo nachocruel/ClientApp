@@ -96,6 +96,8 @@ namespace ClientApp
                                         {
                                             string nickAuthor = useRepo.getUse().nickName;
                                             string[] strSplit = command.Split(' ');
+
+                                           
                                             string newMsg = strSplit[0] + " " + nickAuthor +
                                                 " " + strSplit[1] + " " + strSplit[2] + " ";
 
@@ -118,7 +120,7 @@ namespace ClientApp
                                     else
                                     {
                                         if (pzero.ToUpper() != "NICK")
-                                            Console.WriteLine("Please, first select a nick name! Command: 'NICK <youtnick>'.");
+                                            Console.WriteLine("Por favor, Selecione um apelido primeiro! Comando: 'NICK <youtnick>'.");
                                         else
                                         {
                                             clientApp.SendMessage(command, client);
@@ -128,7 +130,7 @@ namespace ClientApp
 
                                 }
                                 else
-                                    Console.WriteLine("Erro: Client not connected! To connect insert: CONNECT <server> <port>");
+                                    Console.WriteLine("Erro: O cliente não está conectado! Para conectar: CONNECT <server> <port>");
                                 break;
                         }
                 }
@@ -139,52 +141,44 @@ namespace ClientApp
 
         {
             if (String.IsNullOrEmpty(cmd))
-                return Environment.NewLine + "ADMIN: Retorna informações sobre os administradores do servidor (ADMIN [<target>]). Target é um usuário ou servidor. (Nome do servidor: ServerAPP)" + Environment.NewLine
-                    + "CNOTICE: Notifica um usuário em um que esteja em um mesmo canal (CNOTICE <nick-destination> <room> <message>)" + Environment.NewLine
-                    + "CONNECT: Conecta no servidor(caso a porta não seja informada padrão será 5000) CONNECT <target server> [<port>]" + Environment.NewLine
+                return Environment.NewLine + "ADMIN: Retorna informações sobre os administradores do servidor (ADMIN [<alvo>]). Alvo é um usuário ou servidor. (Nome do servidor: ServerAPP)" + Environment.NewLine
+                    + "CNOTICE: Notifica um usuário em um que esteja em um mesmo canal (CNOTICE <apelido-destinatario> <sala> <message>)" + Environment.NewLine
+                    + "CONNECT: Conecta no servidor(caso a porta não seja informada padrão será 5000) CONNECT <servidor> [<port>]" + Environment.NewLine
                     + "DIE: Desconecta do Servidor" + Environment.NewLine
                     + "HELP: Solicita ajuda nos comandos no comandos." + Environment.NewLine
-                    + "KICK: Comando Utilizado para forçar a saída de algum usuário da sala (somente por usuários operadores da sala) (KICK <channel> <client> :[<message>])" + Environment.NewLine
-                    + "JOIN: Faz um usuário se juntar a sala ([JOIN <nick> <room>]). Existe sala 'default' disponível', mas pode-se criar outras." + Environment.NewLine
+                    + "JOIN: Faz um usuário se juntar a sala ([JOIN <apelido> <sala>]). Existe sala 'default' disponível', mas pode-se criar outras." + Environment.NewLine
                     + "LIST: Lista Todas as salas do servidor ([LIST])" + Environment.NewLine
-                    + "NICK: Escolhe um apelido ou altera o apelido (NICK <nickname> [<hopcount>] )" + Environment.NewLine
-                    + "OPER: Loga um usuário como Operdor do servidor (OPER <username> <password>)" + Environment.NewLine
-                    + "PART: Comando utilizado para sair da sala (PART <room>)" + Environment.NewLine
-                    + "PRIVMSG: Envia um mensagem privada para um usuário (PRIVMSG <nick-destination> <room> <message>)" + Environment.NewLine
-                    + "CREATEROOM: Criará um nova sala no servidor. (CREATEROOM <roomName>)" + Environment.NewLine
-                    + "PUBMSG: Envia uma mensagem publicamente na sala. (PUBMSG <room> :<message>). Obs: A mensagem deve estar entre Aspas." + Environment.NewLine + Environment.NewLine;
+                    + "NICK: Escolhe um apelido ou altera o apelido (NICK <apelido>)" + Environment.NewLine
+                    + "PART: Comando utilizado para sair da sala (PART <sala>)" + Environment.NewLine
+                    + "PRIVMSG: Envia um mensagem privada para um usuário (PRIVMSG <apelido-destinatario> <sala> <message>)" + Environment.NewLine
+                    + "CREATEROOM: Criará um nova sala no servidor. (CREATEROOM <nome-da-sala>)" + Environment.NewLine
+                    + "PUBMSG: Envia uma mensagem publicamente na sala. (PUBMSG <sala> :<message>). Obs: A mensagem deve estar entre Aspas." + Environment.NewLine + Environment.NewLine;
             else
             {
                 switch (cmd.ToUpper())
                 {
                     case "ADMIN":
-                        return "ADMIN: Retorna informações sobre os administradores do servidor (ADMIN [<target>]). Target é um usuário ou servidor"; ;
+                        return "ADMIN: Retorna informações sobre os administradores do servidor (ADMIN [<Alvo>]). Alvo é um usuário ou servidor"; ;
                     case "CNOTICE":
-                        return "CNOTICE: Notifica um usuário em um que esteja em um mesmo canal (CNOTICE <nickname> <channel> :<message>)";
+                        return "CNOTICE: Notifica um usuário em um que esteja em um mesmo canal (CNOTICE <apelido> <sala> <message>)";
                     case "CONNECT":
-                        return "CONNECT: Conecta no servidor CONNECT <target server> [<port> [<remote server>]]";
+                        return "CONNECT: Conecta no servidor CONNECT <servidor> [<porta>]";
                     case "DIE":
                         return "DIE: Desconecta do Servidor";
                     case "HELP":
                         return "HELP: Solicita ajuda nos comandos no comandos.";
-                    case "KICK":
-                        return "KICK: Comando Utilizado para forçar a saída de algum usuário da sala (somente por usuários operadores da sala)([KICK nick])";
                     case "JOIN":
-                        return "JOIN: Faz um usuário se juntar a sala (JOIN <room> [<nick>])";
+                        return "JOIN: Faz um usuário se juntar a sala (JOIN <apelido> [<sala>])";
                     case "LIST":
                         return "LIST: Lista Todas as salas do servidor ([LIST])";
                     case "NICK":
-                        return "NICK: Escolhe um apelido ou altera o apelido (NICK <nickname> [<hopcount>] )";
-                    case "OPER":
-                        return "OPER: Loga um usuário como Operdor do servidor (OPER <username> <password>)";
+                        return "NICK: Escolhe um apelido ou altera o apelido (NICK <apelido>)";
                     case "PART":
-                        return "PART: Comando utilizado para sair da sala (PART <room> [<message>])";
-                    case "PASS":
-                        return "PASS: Configura a senha de rede ([PASS nick password])";
+                        return "PART: Comando utilizado para sair da sala (PART <sala>)";
                     case "PRIVMSG":
-                        return "PRIVMSG: Envia um mensagem privada para um usuário (PRIVMSG <username> :<message>)";
+                        return "PRIVMSG: Envia um mensagem privada para um usuário (PRIVMSG <apelido-destinatario> <sala> <message>)";
                     case "PUBMSG":
-                        return "PUBMSG: Envia uma mensagem publicamente na sala. (PUBMSG <room> :<message>). Obs: A mensagem deve estar entre Aspas";
+                        return "PUBMSG: Envia uma mensagem publicamente na sala. (PUBMSG <sala> <message>). Obs: A mensagem deve estar entre Aspas";
                     default:
                         return "Comando inválido!";
                 }

@@ -57,7 +57,7 @@ namespace ClientApp
                             if (resp.success)
                             {
                                 tmWait.Enabled = true;
-                                Console.WriteLine("##Nick selected succefuly!");
+                                Console.WriteLine("##Apelido escolhido com sucesso!");
                                 User user = JsonConvert.DeserializeObject<User>(resp.message);
                                 useRepo.setUser(user);
                             }
